@@ -1,0 +1,11 @@
+{
+    "printWidth": 80,
+    "useTabs": false,
+    "tabWidth": 4,
+    "endOfLine" : "auto",
+    "preprocessorSymbolSets": [
+        "",
+        "DEBUG",
+        "DEBUG,CODE_STYLE"
+    ]
+}
