@@ -15,7 +15,6 @@ public class HomeController() : AppController
         return button(
             clss("btn btn-outline"),
             ("hx-get", "/counter"),
-            ("hx-swap", "outerHTML"),
             ("hx-trigger", "click"),
             ("hx-vals", $$"""
             {"cnt": {{cnt}}}
