@@ -7,8 +7,8 @@ public static class ReflectionHelpers
         return AppDomain
             .CurrentDomain.GetAssemblies()
             .SelectMany(a => a.GetTypes())
-            .Where(
-                a => a.IsAssignableTo(of) && !a.IsAbstract && !a.IsInterface
+            .Where(a =>
+                a.IsAssignableTo(of) && !a.IsAbstract && !a.IsInterface
             );
     }
 }

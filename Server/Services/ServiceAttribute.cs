@@ -13,18 +13,13 @@ public sealed class ServiceAttribute : Attribute
     {
         var serviceAttrs = AppDomain
             .CurrentDomain.GetAssemblies()
-            .SelectMany(
-                a =>
-                    a.GetTypes()
-                        .SelectMany(
-                            type =>
-                                type.GetCustomAttributes(
-                                        typeof(ServiceAttribute),
-                                        true
-                                    )
-                                    .Cast<ServiceAttribute>()
-                                    .Select(x => (type, attribute: x))
-                        )
+            .SelectMany(a =>
+                a.GetTypes()
+                    .SelectMany(type =>
+                        type.GetCustomAttributes(typeof(ServiceAttribute), true)
+                            .Cast<ServiceAttribute>()
+                            .Select(x => (type, attribute: x))
+                    )
             );
 
         foreach (var (type, attr) in serviceAttrs)

@@ -16,9 +16,12 @@ public class HomeController() : AppController
             clss("btn btn-outline"),
             ("hx-get", "/counter"),
             ("hx-trigger", "click"),
-            ("hx-vals", $$"""
-            {"cnt": {{cnt}}}
-            """)
+            (
+                "hx-vals",
+                $$"""
+                {"cnt": {{cnt}}}
+                """
+            )
         )($"value is: {cnt}");
     }
 }

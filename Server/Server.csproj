@@ -7,9 +7,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Eighty.AspNetCore" Version="2.1.0" />
-    <PackageReference Include="HtmlTagHelpers" Version="0.1.1" />
-    <PackageReference Include="Htmx" Version="1.6.1" />
+    <PackageReference Include="Eighty.AspNetCore"/>
+    <PackageReference Include="HtmlTagHelpers" />
+    <PackageReference Include="Htmx"/>
   </ItemGroup>
 
 </Project>
