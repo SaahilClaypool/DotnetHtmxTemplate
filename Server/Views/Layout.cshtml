@@ -1,0 +1,21 @@
+@inject IConfiguration config
+<html>
+
+<head>
+    <link href="/dist/styles.css" rel="stylesheet">
+    <script src="/dist/bundle.js"></script>
+    <!-- htmx plugins -->
+    @* todo move this to part of bundle *@
+    <script src="https://unpkg.com/idiomorph/dist/idiomorph-ext.min.js"></script>
+    @if (config["ASPNETCORE_ENVIRONMENT"] == "Development")
+    {
+        <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+    }
+</head>
+
+<body hx-ext="morph" hx-swap="morph">
+    <h1 class="font-bold p-4">Template App</h1>
+    @RenderBody()
+</body>
+
+</html>

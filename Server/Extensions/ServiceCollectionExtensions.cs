@@ -1,15 +1,10 @@
-namespace AppTemplate;
-
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
-[AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
-public sealed class ServiceAttribute : Attribute
-{
-    public ServiceType ServiceType { get; set; } = ServiceType.Scoped;
-    public Type? InterfaceType { get; set; }
+namespace AppTemplate;
 
-    public static void RegisterServices(IServiceCollection serviceCollection)
+public static class ServiceAttributeExtensions
+{
+    public static void RegisterServicesFromAttribute(this IServiceCollection serviceCollection)
     {
         var serviceAttrs = AppDomain
             .CurrentDomain.GetAssemblies()
@@ -38,12 +33,6 @@ public sealed class ServiceAttribute : Attribute
                     break;
             }
         }
-    }
-}
 
-public enum ServiceType
-{
-    Singleton,
-    Scoped,
-    Transient
+    }
 }

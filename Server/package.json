@@ -13,8 +13,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --watch",
-    "watch:css": "tailwindcss -i ./Views/app.css -o ./wwwroot/dist/styles.css --watch",
-    "build:css": "tailwindcss -i ./Views/app.css -o ./wwwroot/dist/styles.css"
+    "watch:css": "tailwindcss -i ./Scripts/app.css -o ./wwwroot/dist/styles.css --watch",
+    "build:css": "tailwindcss -i ./Scripts/app.css -o ./wwwroot/dist/styles.css"
   },
   "dependencies": {
     "alpinejs": "^3.13.3",

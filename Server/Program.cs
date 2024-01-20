@@ -1,9 +1,9 @@
-global using AppTemplate;
-global using Eighty.AspNetCore.Mvc.ActionResults;
-global using static HtmlTagHelpers.Prelude;
-global using Htmx;
+global using Microsoft.AspNetCore.Mvc.RazorPages;
 global using Microsoft.AspNetCore.Mvc;
-global using H = Eighty.Html;
+global using AppTemplate;
+global using Htmx;
+global using Core;
+
 using Eighty.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 
@@ -12,21 +12,27 @@ var services = builder.Services;
 
 services.Configure<RazorViewEngineOptions>(o =>
 {
-    o.ViewLocationFormats.Clear();
     o.ViewLocationFormats.Add(
         "/Controllers/{1}/{0}" + RazorViewEngine.ViewExtension
+    );
+    o.ViewLocationFormats.Add(
+        "/Controllers/{1}/Views/{0}" + RazorViewEngine.ViewExtension
     );
     o.ViewLocationFormats.Add("/Views/{0}" + RazorViewEngine.ViewExtension);
 });
 
-ServiceAttribute.RegisterServices(services);
+services.RegisterServicesFromAttribute();
 
-services.AddControllersWithViews().AddEighty(o => { });
+services.AddRazorPages();
+services.AddControllers();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
-app.MapDefaultControllerRoute();
+app.UseRouting();
+app.UseAuthorization();
+app.MapRazorPages();
+app.MapControllers();
 
 app.MapGet(
     "/debug/routes",

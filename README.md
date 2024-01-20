@@ -13,7 +13,8 @@ npm run watch && npm run watch:css
 ```
 
 - TODO:
-  - remove htmltaghelpers
+  - remove htmltaghelpers / eighty
   - move to razor pages / mvc
   - add some auth middleware (basic)
   - add some database (basic)
+  - add tests with internals visible to, fakeiteasy, and xunit
