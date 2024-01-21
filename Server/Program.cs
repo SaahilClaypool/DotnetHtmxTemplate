@@ -2,6 +2,7 @@ global using AppTemplate;
 global using Core;
 global using Htmx;
 global using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Razor;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -18,6 +19,13 @@ services.Configure<RazorViewEngineOptions>(o =>
     o.ViewLocationFormats.Add("/Views/{0}" + RazorViewEngine.ViewExtension);
 });
 
+services
+    .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(o =>
+    {
+        o.LoginPath = "/Account/LogIn";
+        o.LogoutPath = "/Account/LogOut";
+    });
 services.RegisterServicesFromAttribute();
 
 services.AddControllersWithViews();
@@ -26,6 +34,7 @@ var app = builder.Build();
 
 app.UseStaticFiles();
 app.UseRouting();
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 
