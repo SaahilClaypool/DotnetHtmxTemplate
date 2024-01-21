@@ -2,7 +2,7 @@
 module.exports = {
     content: [
         "Scripts/**/*.{cs,cshtml,html}",
-        "Controllers/**/*.{cs,cshtml,html}"
+        "./{Controllers,Views}/**/*.{cs,cshtml,html}",
     ],
     theme: {
         extend: {},

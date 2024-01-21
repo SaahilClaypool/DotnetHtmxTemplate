@@ -1,10 +1,7 @@
-global using Microsoft.AspNetCore.Mvc.RazorPages;
-global using Microsoft.AspNetCore.Mvc;
 global using AppTemplate;
-global using Htmx;
 global using Core;
-
-using Eighty.AspNetCore.Mvc;
+global using Htmx;
+global using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Razor;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -23,15 +20,13 @@ services.Configure<RazorViewEngineOptions>(o =>
 
 services.RegisterServicesFromAttribute();
 
-services.AddRazorPages();
-services.AddControllers();
+services.AddControllersWithViews();
 
 var app = builder.Build();
 
 app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthorization();
-app.MapRazorPages();
 app.MapControllers();
 
 app.MapGet(

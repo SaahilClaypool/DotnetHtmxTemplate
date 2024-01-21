@@ -1,0 +1,5 @@
+@model int
+
+<button class="btn" hx-get="/home/counter" hx-vals='{"count": @Model }'>
+    Value is: @Model
+</button>

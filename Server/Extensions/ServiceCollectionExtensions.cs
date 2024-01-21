@@ -4,7 +4,9 @@ namespace AppTemplate;
 
 public static class ServiceAttributeExtensions
 {
-    public static void RegisterServicesFromAttribute(this IServiceCollection serviceCollection)
+    public static void RegisterServicesFromAttribute(
+        this IServiceCollection serviceCollection
+    )
     {
         var serviceAttrs = AppDomain
             .CurrentDomain.GetAssemblies()
@@ -33,6 +35,5 @@ public static class ServiceAttributeExtensions
                     break;
             }
         }
-
     }
 }

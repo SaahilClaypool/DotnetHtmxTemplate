@@ -1,5 +1,7 @@
 namespace AppTemplate.Controllers;
 
-public class AppController() : ControllerBase
+[Route("{controller=Home}/{action=Index}/{id?}")]
+public class AppController() : Controller
 {
+
 }

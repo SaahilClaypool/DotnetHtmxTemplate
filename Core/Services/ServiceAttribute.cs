@@ -1,4 +1,5 @@
 namespace Core;
+
 [AttributeUsage(AttributeTargets.All, Inherited = false, AllowMultiple = true)]
 public sealed class ServiceAttribute : Attribute
 {
