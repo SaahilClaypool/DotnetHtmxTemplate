@@ -16,7 +16,12 @@ services.Configure<RazorViewEngineOptions>(o =>
     o.ViewLocationFormats.Add(
         "/Controllers/{1}/Views/{0}" + RazorViewEngine.ViewExtension
     );
-    o.ViewLocationFormats.Add("/Views/{0}" + RazorViewEngine.ViewExtension);
+    o.ViewLocationFormats.Add(
+        "/Controllers/Views/{0}" + RazorViewEngine.ViewExtension
+    );
+    o.ViewLocationFormats.Add(
+        "/Controllers/Views/Shared/{0}" + RazorViewEngine.ViewExtension
+    );
 });
 
 services

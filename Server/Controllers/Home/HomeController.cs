@@ -19,4 +19,9 @@ public class HomeController : AppController
     {
         return Content("authorized");
     }
+
+    public IActionResult Modal()
+    {
+        return Modal("_counter", 0);
+    }
 }

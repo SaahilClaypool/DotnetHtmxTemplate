@@ -1,0 +1,31 @@
+@inject Microsoft.AspNetCore.Antiforgery.IAntiforgery Antiforgery
+@inject IConfiguration config
+<html>
+
+<head>
+    <link href="/dist/styles.css" rel="stylesheet">
+    <script src="/dist/bundle.js" defer></script>
+    @{
+        var tokenSet = Antiforgery.GetTokens(Context);
+        var csrftoken = tokenSet.RequestToken;
+        var header = tokenSet.HeaderName;
+    }
+    <script defer>
+        window.onload = () => {
+            document.body.addEventListener('htmx:configRequest', (event) => {
+                event.detail.headers['@header'] = '@csrftoken';
+            })
+        }
+    </script>
+    @if (config["ASPNETCORE_ENVIRONMENT"] == "Development")
+    {
+        <script src="/_framework/aspnetcore-browser-refresh.js"></script>
+    }
+</head>
+
+<body hx-swap="outerHTML">
+    <partial name="_header" />
+    @RenderBody()
+</body>
+
+</html>
