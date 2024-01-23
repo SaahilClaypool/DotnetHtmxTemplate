@@ -10,6 +10,7 @@
     <PackageReference Include="Eighty.AspNetCore" />
     <PackageReference Include="HtmlTagHelpers" />
     <PackageReference Include="Htmx" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" />
   </ItemGroup>
 
   <ItemGroup>

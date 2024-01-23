@@ -1,0 +1,11 @@
+@model Note?
+
+@{
+    var action = Model != null ? "/notes/update" : "/notes/create";
+}
+<form method="post" action="@action">
+    <input type="hidden" name="id" value="@Model?.Id">
+    <input name="title" placeholder="title" value=@Model?.Title>
+    <input name="text" placeholder="text" value=@Model?.Text>
+    <input type="submit">
+</form>

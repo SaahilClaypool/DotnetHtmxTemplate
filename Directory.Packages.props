@@ -3,8 +3,13 @@
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
   <ItemGroup>
-      <PackageVersion Include="Eighty.AspNetCore" Version="2.1.0" />
+    <PackageVersion Include="Eighty.AspNetCore" Version="2.1.0" />
     <PackageVersion Include="HtmlTagHelpers" Version="0.1.1" />
     <PackageVersion Include="Htmx" Version="1.6.1" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="8.0.1">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageVersion>
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="8.0.1" />
   </ItemGroup>
 </Project>

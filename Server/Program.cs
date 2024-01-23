@@ -4,6 +4,7 @@ global using Htmx;
 global using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
@@ -33,6 +34,7 @@ services
     });
 services.RegisterServicesFromAttribute();
 
+services.AddDbContext<AppDb>();
 services.AddControllersWithViews();
 
 var app = builder.Build();
