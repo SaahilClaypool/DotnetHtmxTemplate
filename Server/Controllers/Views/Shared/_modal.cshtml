@@ -1,6 +1,6 @@
 <dialog class="modal"
     x-data="{close() { $root.close(); $nextTick(() => window.sleep(200).then(() => $root.remove())); }}"
-    x-init="$root.show()">
+    x-init="$root.show()" x-on:htmx:before-swap.window="close">
     <div class="modal-box border border-black">
         <button x-on:click="close" class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
         <partial name="@Model.Name" model="@Model.Value" />

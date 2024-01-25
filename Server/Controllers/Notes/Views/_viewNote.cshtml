@@ -1,0 +1,6 @@
+@model Note
+<div id="@Model.Id" class="flex flex-row justify-between">
+    <div class="font-bold">@Model.Title</div>
+    <div>@Model.Text</div>
+    <button class="btn" hx-get="/notes/edit?id=@Model.Id" hx-target="body" hx-swap="beforeend">Edit</button>
+</div>

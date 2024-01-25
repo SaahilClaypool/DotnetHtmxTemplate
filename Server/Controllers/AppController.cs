@@ -6,8 +6,18 @@ public class AppController() : Controller
     protected bool Hx() =>
         Request.IsHtmx() && !Request.IsHtmxHistoryRestoreRequest();
 
-    protected IActionResult Modal(string partialName, object parameter) =>
-        PartialView("_modal", new { Name = partialName, Value = parameter });
+    protected IActionResult Modal(
+        string partialName,
+        object parameter
+    ) =>
+        PartialView(
+            "_modal",
+            new
+            {
+                Name = partialName,
+                Value = parameter
+            }
+        );
 
     protected IActionResult Hx(string name, object parameter)
     {

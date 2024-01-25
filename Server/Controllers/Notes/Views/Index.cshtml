@@ -3,13 +3,9 @@
 create
 <partial name="_note" model="default(Note)"/>
 
-<div class="border border-black">
+<div id="note-container" class="border border-black">
     @foreach(var note in Model)
     {
-        <div class="flex flex-row justify-between">
-            <div class="font-bold">@note.Title</div>
-            <div>@note.Text</div>
-            <button class="btn" hx-get="/notes/edit?id=@note.Id" hx-target="body" hx-swap="beforeend">Edit</button>
-        </div>
+        <partial name="_viewNote" model="note"/>
     }
 </div>

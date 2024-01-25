@@ -1,9 +1,12 @@
 @model Note?
 
 @{
-    var action = Model != null ? "/notes/update" : "/notes/create";
+    var isEdit = Model != null;
+    var action = isEdit ? "/notes/update" : "/notes/create";
+    var target = isEdit ? $"#{Model!.Id}" : "#note-container";
+    var swap = isEdit ? $"outerHTML" : "beforeend";
 }
-<form method="post" action="@action">
+<form hx-post="@action" hx-target="@target" hx-swap="@swap">
     <input type="hidden" name="id" value="@Model?.Id">
     <input name="title" placeholder="title" value=@Model?.Title>
     <input name="text" placeholder="text" value=@Model?.Text>

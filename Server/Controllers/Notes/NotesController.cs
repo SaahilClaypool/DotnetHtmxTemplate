@@ -18,9 +18,10 @@ public class NotesController(AppDb db) : AppController
 
     public async Task<IActionResult> Create([FromForm] NoteInput input)
     {
-        db.Add(new Note(input.Title, input.Text, false));
+        var note = new Note(input.Title, input.Text, false);
+        db.Add(note);
         await db.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        return PartialView("_viewNote", note);
     }
 
     public async Task<IActionResult> Update([FromForm] NoteInput input)
@@ -29,10 +30,11 @@ public class NotesController(AppDb db) : AppController
         note!.Title = input.Title;
         note!.Text = input.Text;
         await db.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        return PartialView("_viewNote", note);
     }
 }
+
 public record NoteInput(string Title, string Text)
 {
-    public Guid? Id { get; set;  }
+    public Guid? Id { get; set; }
 }
