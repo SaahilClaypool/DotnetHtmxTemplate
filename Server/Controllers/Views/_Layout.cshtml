@@ -25,7 +25,13 @@
 
 <body hx-swap="outerHTML">
     <partial name="_header" />
-    @RenderBody()
+    @* @await Component.InvokeAsync(nameof(AppTemplate.Controllers.Navbar), new()) *@
+    <div class="flex flex-row">
+        <vc:navbar/>
+        <div class="flex-1 flex-grow" id="content">
+            @RenderBody()
+        </div>
+    </div>
 </body>
 
 </html>
