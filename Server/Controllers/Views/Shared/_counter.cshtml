@@ -1,5 +1,8 @@
 @model int
 
-<button class="btn" hx-get="/home/counter" hx-vals='{"count": @Model }'>
+<button class="btn"
+    hx-swap="morph:outerHTML"
+    hx-target="this"
+    hx-get="/home/counter" hx-vals='{"count": @Model }'>
     Value is: @Model
 </button>

@@ -23,7 +23,7 @@
     }
 </head>
 
-<body hx-swap="outerHTML">
+<body hx-swap="outerHTML" hx-ext="morph">
     <partial name="_header" />
     @* @await Component.InvokeAsync(nameof(AppTemplate.Controllers.Navbar), new()) *@
     <div class="flex flex-row">

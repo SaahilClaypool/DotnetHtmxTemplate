@@ -18,6 +18,7 @@
   },
   "dependencies": {
     "alpinejs": "^3.13.3",
-    "htmx.org": "^1.9.10"
+    "htmx.org": "^2.0.0-alpha1",
+    "idiomorph": "^0.3.0"
   }
 }
