@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace AppTemplate.Controllers;
 
+[AllowAnonymous]
 public class AccountController : AppController
 {
     public IActionResult Login(string returnUrl)
@@ -41,6 +42,7 @@ public class AccountController : AppController
 
     public record Credentials(string Username, string Password);
 
+    [Authorize]
     public async Task<IActionResult> LogOut()
     {
         await HttpContext.SignOutAsync(

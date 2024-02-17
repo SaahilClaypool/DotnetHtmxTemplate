@@ -3,7 +3,7 @@
 @{
     var isEdit = Model != null;
     var action = isEdit ? "/notes/update" : "/notes/create";
-    var target = isEdit ? $"#{Model!.Id}" : "#note-container";
+    var target = isEdit ? $@"#n{Model!.Id}" : "#note-container";
     var swap = isEdit ? $"outerHTML" : "beforeend";
 }
 <form hx-post="@action" hx-target="@target" hx-swap="@swap">

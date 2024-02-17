@@ -1,3 +1,4 @@
+global using Microsoft.AspNetCore.Authorization;
 global using AppTemplate;
 global using Core;
 global using Htmx;

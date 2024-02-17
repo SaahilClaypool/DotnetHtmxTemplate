@@ -5,6 +5,8 @@
 <head>
     <link href="/dist/styles.css" rel="stylesheet">
     <script src="/dist/bundle.js" defer></script>
+    @* <meta name="htmx-config" content='{"historyCacheSize": 0, "refreshOnHistoryMiss": true}'> *@
+    </script>
     @{
         var tokenSet = Antiforgery.GetTokens(Context);
         var csrftoken = tokenSet.RequestToken;
@@ -23,11 +25,10 @@
     }
 </head>
 
-<body hx-swap="outerHTML" hx-ext="morph">
+<body class="h-lvh flex flex-col" hx-swap="outerHTML" hx-ext="morph" hx-boost="true" hx-push-url="true">
     <partial name="_header" />
-    @* @await Component.InvokeAsync(nameof(AppTemplate.Controllers.Navbar), new()) *@
-    <div class="flex flex-row">
-        <vc:navbar/>
+    <div class="flex flex-row flex-grow">
+        <vc:navbar />
         <div class="flex-1 flex-grow" id="content">
             @RenderBody()
         </div>

@@ -7,10 +7,9 @@ public class Navbar : ViewComponent
         return Task.FromResult((IViewComponentResult)View(
             new List<NavItem>()
             {
-                new("one", "/home"),
-                new("two", "/home"),
-                new("three", "/home"),
-                new("four", "/home")
+                new("one", "/nav/one"),
+                new("two", "/nav/two"),
+                new("three", "/nav/three"),
             }
         ));
     }

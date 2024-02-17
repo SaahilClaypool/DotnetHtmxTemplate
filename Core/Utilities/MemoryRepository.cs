@@ -6,7 +6,7 @@ namespace Core;
 public class MemoryRepository<T> : IRepository<T>
     where T : IHasId
 {
-    public ConcurrentDictionary<Guid, T> _items = new();
+    public ConcurrentDictionary<int, T> _items = new();
 
     public Task Delete(IEnumerable<T> items)
     {

@@ -7,10 +7,9 @@ public class NotesController(AppDb db) : AppController
     public async Task<IActionResult> Index() =>
         View(await db.Notes.ToListAsync());
 
-    public async Task<IActionResult> Edit(string id)
+    public async Task<IActionResult> Edit(int id)
     {
-        var guid = Guid.Parse(id);
-        var note = await db.Notes.FindAsync(guid);
+        var note = await db.Notes.FindAsync(id);
         if (Hx())
             return Modal("_note", note!);
         return View("_note", note);
@@ -36,5 +35,5 @@ public class NotesController(AppDb db) : AppController
 
 public record NoteInput(string Title, string Text)
 {
-    public Guid? Id { get; set; }
+    public int? Id { get; set; }
 }

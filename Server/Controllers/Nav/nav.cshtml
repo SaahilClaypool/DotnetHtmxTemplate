@@ -1,0 +1,21 @@
+@model string
+
+@{
+    Layout = "_layout";
+}
+
+<div class="flex flex-col" hx-target="#target" hx-select="#target" hx-swap="outerHTML">
+    <a class="link" hx-boost="true" href="/nav/nested/layout?id=1">Nested</a>
+    <a class="link" hx-boost="true" href="/nav/nested/layout?id=2">Nested 2</a>
+</div>
+
+<div id="target" class="p-4 border border-black">
+    @try
+    {
+        @RenderBody()
+    }
+    catch
+    {
+        @("target")
+    }
+</div>
