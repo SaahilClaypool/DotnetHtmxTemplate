@@ -1,7 +1,6 @@
 namespace AppTemplate.Controllers;
 
 [Route("{controller=Home}/{action=Index}/{id?}")]
-[Authorize]
 public class AppController() : Controller
 {
     protected bool Hx() =>

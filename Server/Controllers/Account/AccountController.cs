@@ -37,7 +37,7 @@ public class AccountController : AppController
             CookieAuthenticationDefaults.AuthenticationScheme,
             new ClaimsPrincipal(id)
         );
-        return Redirect("~" + uri ?? "/");
+        return Redirect(!string.IsNullOrWhiteSpace(uri) ? uri : "/");
     }
 
     public record Credentials(string Username, string Password);
